@@ -15,6 +15,37 @@
       ]
     },
     {
+      "name": "Tuner",
+      "tiles": [
+        {
+          "type": "ShooterTuner",
+          "col": 1, "row": 1, "colspan": 12, "rowspan": 6,
+          "props": {
+            "title":           "Shooter Table Tuner",
+            "firedTopic":      "/Shooter/Fired",
+            "scoredTopic":     "/Shooter/NoteScored",
+            "tableTopic":      "/SmartDashboard/ShooterTable",
+            "rpmTopic":        "/Shooter/FlywheelRPM",
+            "hDevTopic":       "/AutoAlign/HDeviation",
+            "vDevTopic":       "/AutoAlign/VDeviation",
+            "distSource":      "topic",
+            "distTopic":       "/Drive/DistanceToTarget",
+            "limelightTyTopic":"/limelight/ty",
+            "camHeight":       0.28,
+            "mountAngleDeg":   25.0,
+            "targetHeight":    2.11,
+            "testFrom":        2.0,
+            "testTo":          7.0,
+            "buckStep":        0.5,
+            "shotsPerDist":    5,
+            "kAngle":          0.25,
+            "hitTimeoutMs":    1800,
+            "minShots":        3
+          }
+        }
+      ]
+    },
+    {
       "name": "Systems",
       "tiles": [
         { "type": "PowerDistribution", "col": 1, "row": 1, "colspan": 4, "rowspan": 4, "props": { "title": "Power Distribution", "topic": "/PowerDistribution" } },

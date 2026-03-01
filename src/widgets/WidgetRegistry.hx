@@ -40,5 +40,6 @@ class WidgetRegistry {
         register("CommandScheduler", (s,b) -> new CommandScheduler(s,b));
         register("PowerDistribution",(s,b) -> new PowerDistribution(s,b));
         register("AutoAlignWidget",  (s,b) -> new widgets.autoalign.AutoAlignWidget(s,b));
+        register("ShooterTuner",     (s,b) -> new ShooterTunerWidget(s,b));
     }
 }
