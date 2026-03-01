@@ -1140,3 +1140,217 @@ body::before {
 }
 .ctx-item.danger { color: var(--red); }
 .ctx-item.danger:hover { background: rgba(255,77,109,0.1); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Shooter Tuner Widget  (.shooter-tuner)
+   ═══════════════════════════════════════════════════════════════════════ */
+.shooter-tuner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  font-size: 11px;
+  overflow: auto;
+  padding: 0;
+}
+
+/* Header */
+.st-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+.st-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-bright);
+  letter-spacing: 0.5px;
+  flex: 1;
+}
+.st-status {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  min-width: 70px;
+  text-align: center;
+  transition: color 0.2s, background 0.2s;
+}
+.st-rec-btn {
+  background: rgba(255,77,109,0.12);
+  border: 1px solid rgba(255,77,109,0.35);
+  color: var(--red);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.st-rec-btn:hover    { background: rgba(255,77,109,0.22); }
+.st-rec-btn.active   { background: rgba(255,77,109,0.35); box-shadow: 0 0 10px rgba(255,77,109,0.4); }
+
+/* Config strip */
+.st-config {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 6px 10px;
+  padding: 7px 12px;
+  background: var(--bg-glass);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+.st-cfg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.st-cfg-field label {
+  font-size: 9px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.st-cfg-field input {
+  width: 62px;
+  padding: 3px 6px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-size: 10px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+}
+.st-cfg-field input:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 2px var(--cyan-dim);
+}
+.st-btn {
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-mid);
+  background: var(--bg-raised);
+  color: var(--text-primary);
+  font-size: 10px;
+  cursor: pointer;
+  align-self: flex-end;
+  transition: background 0.12s;
+}
+.st-btn:hover { background: var(--bg-glass-hover); color: var(--text-bright); }
+.st-apply {
+  border-color: rgba(0,230,118,0.4);
+  color: var(--green);
+  background: rgba(0,230,118,0.08);
+}
+.st-apply:hover { background: rgba(0,230,118,0.18); }
+
+/* Progress */
+.st-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 12px;
+  flex-shrink: 0;
+}
+.st-progress-lbl {
+  font-size: 9px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  min-width: 170px;
+}
+.st-progress-track {
+  flex: 1;
+  height: 5px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.st-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s var(--ease-snap), background 0.3s;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Section titles */
+.st-section-title {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-dim);
+  padding: 6px 12px 2px;
+  flex-shrink: 0;
+}
+
+/* Tables */
+.st-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+.st-table thead th {
+  padding: 4px 8px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.st-table tbody td {
+  padding: 3px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+.st-table tbody tr:hover td { background: var(--bg-glass); }
+.st-th-bar { min-width: 90px; }
+
+/* Row states */
+.st-planned td        { color: var(--text-dim); }
+.st-done td           { color: var(--text-secondary); }
+.st-changed td        { background: rgba(0,212,255,0.04); }
+.st-awaiting          { color: var(--text-dim) !important; font-style: italic; }
+.st-empty             { color: var(--text-dim); text-align: center; padding: 14px !important; font-style: italic; }
+
+/* Accuracy bar */
+.st-bar-wrap {
+  position: relative;
+  height: 14px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  min-width: 80px;
+}
+.st-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s var(--ease-snap);
+}
+.st-bar-lbl {
+  position: absolute;
+  right: 4px;
+  top: 0;
+  line-height: 14px;
+  font-size: 9px;
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+/* Value highlights */
+.st-sug         { color: var(--cyan); font-weight: 600; }
+.st-vdev-hi     { color: var(--yellow); }
+.st-vdev-lo     { color: var(--violet); }
+
+/* Shot log row states */
+.st-hit-row td  { background: rgba(0,230,118,0.06); }
+.st-miss-row td { background: rgba(255,77,109,0.06); }
+.st-pending td  { color: var(--text-dim); font-style: italic; }
+.st-hit-lbl     { color: var(--green);  font-weight: 600; }
+.st-miss-lbl    { color: var(--red);    font-weight: 600; }
