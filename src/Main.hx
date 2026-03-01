@@ -45,7 +45,7 @@ class Main {
         ThemeManager.instance.apply(appState.theme);
 
         // Build toolbar (includes widget picker, property panel)
-        toolbar = new Toolbar(root, appState, ntClient);
+        toolbar = new Toolbar(root, appState, ntClient, topicStore);
 
         // Build grid container
         var gridContainer = Browser.document.createElement("div");

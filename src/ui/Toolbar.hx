@@ -6,6 +6,7 @@ import core.NT4Client;
 import core.AppState;
 import layout.LayoutSerializer;
 import util.EventBus;
+import sim.SimRobot;
 
 /**
  * Top toolbar: connection, edit-mode toggle, tab bar, theme, import/export.
@@ -14,6 +15,7 @@ class Toolbar {
     var root: Element;
     var appState: AppState;
     var ntClient: NT4Client;
+    var store: core.TopicStore;
     var bus: EventBus;
     var connectionDialog: ConnectionDialog;
     var widgetPicker: WidgetPicker;
@@ -23,11 +25,14 @@ class Toolbar {
     var connIndicator: Element;
     var editBtn: Element;
     var pickerBtn: Element;
+    var demoBtn: Element;
+    var simRobot: Null<SimRobot> = null;
 
-    public function new(root: Element, appState: AppState, ntClient: NT4Client) {
+    public function new(root: Element, appState: AppState, ntClient: NT4Client, store: core.TopicStore) {
         this.root = root;
         this.appState = appState;
         this.ntClient = ntClient;
+        this.store = store;
         this.bus = EventBus.instance;
 
         connectionDialog = new ConnectionDialog(ntClient, appState);
@@ -72,6 +77,12 @@ class Toolbar {
 
         toolbar.appendChild(makeSep());
 
+        // Demo / simulation mode
+        demoBtn = makeBtn("▶ Demo", function() { toggleDemo(); });
+        toolbar.appendChild(demoBtn);
+
+        toolbar.appendChild(makeSep());
+
         // Theme toggle
         toolbar.appendChild(makeBtn("Theme", function() {
             ThemeManager.instance.toggle();
@@ -90,6 +101,27 @@ class Toolbar {
         toolbar.appendChild(ver);
 
         root.appendChild(toolbar);
+    }
+
+    function toggleDemo(): Void {
+        if (simRobot != null) {
+            simRobot.stop();
+            simRobot = null;
+            demoBtn.textContent = "▶ Demo";
+            cast(demoBtn, js.html.Element).classList.remove("active");
+            // Show disconnected state
+            setConnectionState(false);
+        } else {
+            simRobot = new SimRobot(store, bus);
+            simRobot.start();
+            demoBtn.textContent = "■ Demo";
+            cast(demoBtn, js.html.Element).classList.add("active");
+            // Show a fake connected state in toolbar
+            connIndicator.classList.add("connected");
+            connIndicator.title = "Demo Mode";
+            connBtn.textContent = "Simulation";
+            cast(connBtn, js.html.Element).classList.add("active");
+        }
     }
 
     function makeBtn(label: String, onClick: Void->Void): Element {
