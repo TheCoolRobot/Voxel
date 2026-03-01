@@ -1,4 +1,4 @@
-# Voxel
+
 
 A full-featured FRC driver-station dashboard built in [Haxe](https://haxe.org/), compiling to JavaScript for the browser (or Electron). Real-time robot telemetry via the **NT4 WebSocket protocol**, glassmorphism UI, and a custom **AutoAlign / Ferry** composite widget with Limelight camera feed, path overlay, RPM gauge, and an editable shooter lookup table that writes back to NetworkTables.
 
@@ -6,30 +6,7 @@ A full-featured FRC driver-station dashboard built in [Haxe](https://haxe.org/),
 
 ## Screenshots
 
-```
-┌──────────────────────────────────────── Drive tab ───────────────────────────────────────┐
-│  [FRC]  Connect ✓  | Edit Mode  | + Widget  | Export  Import  | Theme       FRC Dashboard │
-├──────────┬──────────┬──────────────────────────────────────────────────────────────────── │
-│  Match   │  Speed   │                                                                     │
-│  01:45   │  2.3 m/s │         (field image — robot pose overlay)                         │
-│  ██████  │          │                                                                     │
-├──────────┤  Vision  │──────────────────────────────────────────── Line Graph ─────────────│
-│  Gyro    │  TRUE    │                                                                     │
-│  (compass│          │   Auto Chooser                              SendableChooser         │
-└──────────┴──────────┴─────────────────────── AutoAlign / Ferry ─────────────────────────┘
-                         │  [Limelight feed + path overlay]                                │
-                         ├────────────────┬──────────────┬─────────────────────────────── │
-                         │ ←──●──→ H      │  ↑          │      Flywheel RPM               │
-                         │  +12.3 px      │  ●  V        │   ████░░  2450 / 3000          │
-                         │                │  ↓  +5.2 px  │                                │
-                         ├────────────────┴──────────────┴─────────────────────────────── │
-                         │  SHOOTER LOOKUP TABLE           Dist │ Angle │ RPM  │           │
-                         │                                  4.0 │  41.0 │ 2200 │  ✕        │
-                         │                                  5.0 │  43.5 │ 2450 │  ✕        │
-                         └──────────────────────────────────────────────────────────────  ┘
-```
-
----
+![](assets/screenshots/Screenshot%202026-03-01%20at%202.09.26 PM.png)
 
 ## Prerequisites
 
