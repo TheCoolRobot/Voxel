@@ -84,7 +84,7 @@ class FieldWidget extends Widget {
     // Called for the primary pose topic (set via Widget.configure ntTopic)
     override public function onNTUpdate(topic: String, value: Dynamic): Void {
         if (topic == pathTopic) {
-            onPathUpdate(value);
+            onPathUpdate(topic, value);
             return;
         }
         // Odometry pose: double[] [x, y, rotation_deg]
@@ -99,8 +99,8 @@ class FieldWidget extends Widget {
         render();
     }
 
-    // Handle PathPlanner activePath updates
-    function onPathUpdate(value: Dynamic): Void {
+    // Handle PathPlanner activePath updates (String->Dynamic->Void for store.subscribe)
+    function onPathUpdate(_topic: String, value: Dynamic): Void {
         pathPoints = [];
         if (!Std.isOfType(value, Array)) { render(); return; }
         var arr: Array<Dynamic> = value;
