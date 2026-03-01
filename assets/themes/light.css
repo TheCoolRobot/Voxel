@@ -1,0 +1,50 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   FRC Dashboard · Light Theme
+   Inherits all layout rules from dark.css (loaded first in ThemeManager).
+   Only re-declares design tokens — no structural duplication.
+   ═══════════════════════════════════════════════════════════════════════ */
+@import url('assets/themes/dark.css');
+
+:root {
+  --bg-void:        #f0f4fa;
+  --bg-deep:        #e8edf8;
+  --bg-surface:     rgba(255, 255, 255, 0.88);
+  --bg-raised:      rgba(240, 244, 255, 0.9);
+  --bg-glass:       rgba(0, 0, 0, 0.03);
+  --bg-glass-hover: rgba(0, 0, 0, 0.06);
+  --bg-input:       rgba(230, 235, 250, 0.9);
+
+  --border-subtle:  rgba(0, 0, 0, 0.07);
+  --border-mid:     rgba(0, 0, 0, 0.13);
+  --border-glow:    rgba(0, 100, 200, 0.5);
+
+  --cyan:           #0070cc;
+  --cyan-dim:       rgba(0, 112, 204, 0.1);
+  --cyan-glow:      0 0 12px rgba(0,112,204,0.3);
+  --violet:         #7c3aed;
+  --violet-dim:     rgba(124, 58, 237, 0.1);
+  --green:          #059669;
+  --green-dim:      rgba(5, 150, 105, 0.1);
+  --green-glow:     0 0 10px rgba(5,150,105,0.3);
+  --yellow:         #d97706;
+  --yellow-glow:    0 0 10px rgba(217,119,6,0.3);
+  --red:            #dc2626;
+  --red-glow:       0 0 10px rgba(220,38,38,0.3);
+  --orange:         #ea580c;
+
+  --text-bright:    #0a0e1f;
+  --text-primary:   #1e2340;
+  --text-secondary: #4a5278;
+  --text-dim:       #8a93b8;
+}
+
+body::before {
+  background:
+    radial-gradient(ellipse 140% 80% at 20% -10%, rgba(180, 210, 255, 0.3) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 60% at 80% 110%, rgba(200, 180, 255, 0.2) 0%, transparent 50%);
+}
+
+/* On light: remove glow from numbers (too strong against white) */
+.number-display .value { text-shadow: none; }
+.match-time .time-value { text-shadow: none; }
+.match-time .time-value.danger { animation: none; }

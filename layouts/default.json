@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "tabs": [
+    {
+      "name": "Drive",
+      "tiles": [
+        { "type": "MatchTime",       "col": 1,  "row": 1, "colspan": 2, "rowspan": 2, "props": { "title": "Match Time", "topic": "/AdvantageKit/RealOutputs/MatchTime", "warningThreshold": 30, "dangerThreshold": 10 } },
+        { "type": "NumberDisplay",   "col": 3,  "row": 1, "colspan": 2, "rowspan": 1, "props": { "title": "Robot Speed", "topic": "/AdvantageKit/RealOutputs/Drive/LeftVelocityMetersPerSec", "unit": "m/s", "decimals": 2 } },
+        { "type": "BooleanBox",      "col": 5,  "row": 1, "colspan": 2, "rowspan": 1, "props": { "title": "Vision Active", "topic": "/AdvantageKit/RealOutputs/Vision/Connected" } },
+        { "type": "FieldWidget",     "col": 1,  "row": 3, "colspan": 6, "rowspan": 4, "props": { "title": "Field", "topic": "/AdvantageKit/RealOutputs/Odometry/RobotPose", "alliance": "blue" } },
+        { "type": "GyroWidget",      "col": 7,  "row": 1, "colspan": 2, "rowspan": 2, "props": { "title": "Gyro", "topic": "/AdvantageKit/RealOutputs/Drive/GyroYawDeg" } },
+        { "type": "LineGraph",       "col": 9,  "row": 1, "colspan": 4, "rowspan": 3, "props": { "title": "Drive Velocity", "topic": "/AdvantageKit/RealOutputs/Drive/LeftVelocityMetersPerSec", "windowSec": 10 } },
+        { "type": "SendableChooser", "col": 9,  "row": 4, "colspan": 4, "rowspan": 2, "props": { "title": "Auto Chooser", "topic": "/SmartDashboard/Auto Chooser" } },
+        { "type": "AutoAlignWidget", "col": 7,  "row": 3, "colspan": 2, "rowspan": 4, "props": { "title": "AutoAlign/Ferry", "cameraUrl": "", "hDeviationTopic": "/AutoAlign/HDeviation", "vDeviationTopic": "/AutoAlign/VDeviation", "rpmTopic": "/Shooter/FlywheelRPM", "rpmTargetTopic": "/Shooter/TargetRPM", "shooterTableTopic": "/SmartDashboard/ShooterTable", "pathTopic": "/AutoAlign/PathPoints", "pathMode": "pixels" } }
+      ]
+    },
+    {
+      "name": "Systems",
+      "tiles": [
+        { "type": "PowerDistribution", "col": 1, "row": 1, "colspan": 4, "rowspan": 4, "props": { "title": "Power Distribution", "topic": "/PowerDistribution" } },
+        { "type": "SubsystemWidget",   "col": 5, "row": 1, "colspan": 4, "rowspan": 3, "props": { "title": "Subsystems", "topic": "/LiveWindow" } },
+        { "type": "CommandScheduler",  "col": 9, "row": 1, "colspan": 4, "rowspan": 3, "props": { "title": "Commands", "topic": "/Scheduler" } },
+        { "type": "NumberDisplay",     "col": 5, "row": 4, "colspan": 2, "rowspan": 1, "props": { "title": "Battery", "topic": "/AdvantageKit/RealOutputs/PowerDistribution/Voltage", "unit": "V", "decimals": 2 } },
+        { "type": "Gauge",             "col": 7, "row": 4, "colspan": 2, "rowspan": 1, "props": { "title": "CPU Temp", "topic": "/AdvantageKit/RealOutputs/SystemStats/CPUTempCelsius", "min": 0, "max": 100 } }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "year": 2025,
+  "name": "Reefscape",
+  "imageFile": "2025-reefscape.png",
+  "fieldWidthMeters": 16.54,
+  "fieldHeightMeters": 8.21,
+  "imageWidthPx": 1654,
+  "imageHeightPx": 821,
+  "originBlue": { "x": 0.0, "y": 0.0 },
+  "originRed":  { "x": 16.54, "y": 8.21 }
+}

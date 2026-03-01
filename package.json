@@ -1,0 +1,42 @@
+{
+  "name": "frc-haxe-dashboard",
+  "version": "1.0.0",
+  "description": "FRC Driver Dashboard — real-time NT4 telemetry",
+  "main": "electron/main.js",
+  "scripts": {
+    "start":   "electron .",
+    "rebuild": "haxe build.hxml && electron .",
+    "dist":    "electron-builder"
+  },
+  "devDependencies": {
+    "electron":         "^34.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId":       "com.frc.haxe-dashboard",
+    "productName": "FRC Dashboard",
+    "copyright":   "MIT",
+    "files": [
+      "index.html",
+      "bin/dashboard.js",
+      "assets/**",
+      "layouts/**",
+      "electron/**"
+    ],
+    "mac": {
+      "category":  "public.app-category.utilities",
+      "icon":      "electron/icon.icns",
+      "target":    [{ "target": "dmg", "arch": ["arm64", "x64"] }]
+    },
+    "win": {
+      "icon":   "electron/icon.ico",
+      "target": [{ "target": "nsis", "arch": ["x64"] }]
+    },
+    "linux": {
+      "target": [{ "target": "AppImage", "arch": ["x64"] }]
+    },
+    "dmg": {
+      "title": "FRC Dashboard ${version}"
+    }
+  }
+}

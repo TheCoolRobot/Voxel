@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FRC Driver Dashboard — real-time robot telemetry via NT4">
+  <title>FRC Dashboard</title>
+
+  <!-- Preconnect for font performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Theme (swapped by ThemeManager) -->
+  <link id="theme-css" rel="stylesheet" href="assets/themes/dark.css">
+
+  <style>
+    /* Critical inline styles — ensure no FOUC before CSS loads */
+    html, body { margin: 0; padding: 0; background: #04040d; overflow: hidden; }
+    #root { width: 100vw; height: 100vh; display: flex; flex-direction: column; }
+
+    /* Loading splash shown until JS runs */
+    #splash {
+      position: fixed; inset: 0;
+      background: #04040d;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 18px;
+      z-index: 9999;
+      transition: opacity 0.4s ease;
+    }
+    #splash.hidden { opacity: 0; pointer-events: none; }
+    .splash-logo {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 13px; font-weight: 900;
+      letter-spacing: 6px; color: #00d4ff;
+      text-shadow: 0 0 20px rgba(0,212,255,0.6), 0 0 50px rgba(0,212,255,0.2);
+    }
+    .splash-sub {
+      font-family: system-ui, sans-serif;
+      font-size: 11px; color: #454d6b;
+      letter-spacing: 2px; text-transform: uppercase;
+    }
+    .splash-bar {
+      width: 160px; height: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 99px; overflow: hidden;
+    }
+    .splash-bar-fill {
+      height: 100%; width: 40%;
+      background: linear-gradient(90deg, #00d4ff, #bf6fff);
+      border-radius: 99px;
+      animation: splash-slide 1s ease-in-out infinite alternate;
+    }
+    @keyframes splash-slide {
+      from { margin-left: 0;   width: 40%; }
+      to   { margin-left: 60%; width: 40%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading splash -->
+  <div id="splash">
+    <div class="splash-logo">FRC DASHBOARD</div>
+    <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+    <div class="splash-sub">Initializing…</div>
+  </div>
+
+  <!-- App root -->
+  <div id="root"></div>
+
+  <script src="bin/dashboard.js"></script>
+  <script>
+    // Hide splash once the dashboard JS has had a tick to render
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var s = document.getElementById('splash');
+        if (s) { s.classList.add('hidden'); setTimeout(function(){ s.remove(); }, 450); }
+      }, 180);
+    });
+  </script>
+</body>
+</html>

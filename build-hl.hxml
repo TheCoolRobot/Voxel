@@ -1,0 +1,6 @@
+-cp src
+-lib haxeui-core
+-lib haxeui-heaps
+-lib heaps
+-hl bin/dashboard.hl
+-main Main
