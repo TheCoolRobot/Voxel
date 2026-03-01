@@ -11,16 +11,16 @@
   /* Backgrounds – layered depth */
   --bg-void:       #04040d;
   --bg-deep:       #07091a;
-  --bg-surface:    rgba(12, 14, 36, 0.82);
-  --bg-raised:     rgba(20, 24, 60, 0.75);
-  --bg-glass:      rgba(255, 255, 255, 0.035);
-  --bg-glass-hover:rgba(255, 255, 255, 0.065);
-  --bg-input:      rgba(8, 10, 28, 0.9);
+  --bg-surface:    rgba(28, 33, 82, 0.96);
+  --bg-raised:     rgba(35, 42, 100, 0.88);
+  --bg-glass:      rgba(255, 255, 255, 0.07);
+  --bg-glass-hover:rgba(255, 255, 255, 0.11);
+  --bg-input:      rgba(10, 12, 35, 0.95);
 
   /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.07);
-  --border-mid:    rgba(255, 255, 255, 0.12);
-  --border-glow:   rgba(0, 212, 255, 0.5);
+  --border-subtle: rgba(255, 255, 255, 0.14);
+  --border-mid:    rgba(255, 255, 255, 0.24);
+  --border-glow:   rgba(0, 212, 255, 0.6);
 
   /* Neon accent palette */
   --cyan:          #00d4ff;
@@ -346,8 +346,9 @@ body::before {
 
   border: 1px solid var(--border-subtle);
   box-shadow:
-    0 4px 24px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.06);
+    0 4px 28px rgba(0,0,0,0.70),
+    0 1px 0    rgba(255,255,255,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.13);
 
   transition:
     border-color 0.25s var(--ease-smooth),
@@ -360,7 +361,7 @@ body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, transparent 50%);
+  background: linear-gradient(145deg, rgba(255,255,255,0.07) 0%, transparent 55%);
   pointer-events: none;
   border-radius: inherit;
   z-index: 0;
