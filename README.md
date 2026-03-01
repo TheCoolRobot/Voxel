@@ -1,4 +1,4 @@
-
+# Voxel
 
 A full-featured FRC driver-station dashboard built in [Haxe](https://haxe.org/), compiling to JavaScript for the browser (or Electron). Real-time robot telemetry via the **NT4 WebSocket protocol**, glassmorphism UI, and a custom **AutoAlign / Ferry** composite widget with Limelight camera feed, path overlay, RPM gauge, and an editable shooter lookup table that writes back to NetworkTables.
 
@@ -6,7 +6,7 @@ A full-featured FRC driver-station dashboard built in [Haxe](https://haxe.org/),
 
 ## Screenshots
 
-![](assets/screenshots/Screenshot%202026-03-01%20at%202.09.26 PM.png)
+![](assets/screenshots/MoreContrast.png)
 
 ## Prerequisites
 
